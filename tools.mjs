@@ -15,9 +15,9 @@ export function sleep(timer, time, callback) {
 }
 
 export function outOfBounds(obj) {
-    if (obj.x <= 0 - obj.image.width) return true
-    if (obj.y <= 0 - obj.image.height) return true
+    if (obj.x <= 0 - obj.image.width - 20) return true
+    if (obj.y <= 0 - obj.image.height - 20) return true
 
-    if (obj.x >= canvas.width + obj.image.width) return true
-    if (obj.y >= canvas.height + obj.image.height) return true
+    if (obj.x >= canvas.width + obj.image.width + 20) return true
+    if (obj.y >= canvas.height + obj.image.height + 20) return true
 }

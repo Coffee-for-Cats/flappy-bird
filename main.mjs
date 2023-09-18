@@ -1,11 +1,11 @@
-//import './keyboard.mjs'
-import { bird } from './objects/bird.mjs'
 import { invokeDoublePipes, interPipeGap } from './objects/pipes.mjs';
 import { sleep, outOfBounds } from './tools.mjs'
+import { bird } from './objects/bird.mjs'
 
 export const canvas = document.getElementById("main");
 export const ctx = canvas.getContext('2d');
 export const scene = [bird];
+
 
 const score = document.querySelector('#score');
 

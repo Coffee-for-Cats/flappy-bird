@@ -1,4 +1,4 @@
-import { ctx } from '../main.mjs';
+import { ctx, canvas } from '../main.mjs';
 
 const image = document.createElement("img");
 image.src = "./assets/bird.png";
@@ -11,7 +11,7 @@ export const bird = {
     image,
 
     alive: function () {
-        bird.speedY += .8;
+        bird.speedY += .6;
         //const speedSignal = bird.speedY < 0 ? -1 : 1;
         bird.speedY = bird.speedY * (100 - birdAirFriction) / 100;
         bird.y += bird.speedY;
@@ -39,4 +39,8 @@ document.addEventListener("keydown", (e) => {
     if (e.key == "ArrowUp") {
         bird.speedY -= 20;
     }
+})
+
+document.getElementById("main").addEventListener("click", (e) => {
+    bird.speedY -= 20;
 })
