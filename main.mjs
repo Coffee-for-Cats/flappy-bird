@@ -6,7 +6,6 @@ export const canvas = document.getElementById("main");
 export const ctx = canvas.getContext('2d');
 export const scene = [bird];
 
-
 const score = document.querySelector('#score');
 
 let x = 0;
@@ -16,7 +15,7 @@ function render() {
     
     sleep("putPipes", interPipeGap.gap, function () {
         const { myPipeFloor, myPipeCeil } = invokeDoublePipes();
-        scene.push(myPipeFloor); scene.push(myPipeCeil);
+        scene.push(myPipeFloor, myPipeCeil);
     })
 
     for (let i = 0; i < scene.length; i++) {

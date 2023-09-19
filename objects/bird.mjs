@@ -30,17 +30,21 @@ export const bird = {
         const touchesY = limitY >= object.y + falseGap &&
             limitY <= (object.y + object.image.height - falseGap);
         return touchesX && touchesY;
-    }
+    },
+
+    jump: function () {
+        bird.speedY -= 20;
+    },
 }
 
 const falseGap = 5;
 
 document.addEventListener("keydown", (e) => {
     if (e.key == "ArrowUp") {
-        bird.speedY -= 20;
+        bird.jump();
     }
 })
 
 document.getElementById("main").addEventListener("click", (e) => {
-    bird.speedY -= 20;
+    bird.jump();
 })
