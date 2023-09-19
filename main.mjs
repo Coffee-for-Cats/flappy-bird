@@ -8,7 +8,7 @@ export const scene = [bird];
 
 const score = document.querySelector('#score');
 
-let x = 0;
+let distance = 0;
 window.requestAnimationFrame(render);
 function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -18,21 +18,20 @@ function render() {
         scene.push(myPipeFloor, myPipeCeil);
     })
 
-    for (let i = 0; i < scene.length; i++) {
-        const object = scene[i];
-        if (bird.contacts(object) || outOfBounds(bird)) gameOver();
-        if (outOfBounds(object)) {
+    scene.forEach(obj => {
+        if (bird.contacts(obj) || outOfBounds(bird)) gameOver();
+        if (outOfBounds(obj)) {
             scene.splice(i, 1);
         }
-    }
-    
+    })
+    // needs to be separated, if not, it will execute something already removed
     scene.forEach(obj => obj.alive());
 
-    x++;
-    canvas.style.backgroundPosition = `${-x}px 0px`;
+    distance++;
+    canvas.style.backgroundPosition = `${-distance}px 0px`;
 
-    // score
-    const cutScore = Math.floor(x / interPipeGap.gap) - 1;
+    // score printing
+    const cutScore = Math.floor(distance / interPipeGap.gap) - 1;
     score.textContent = cutScore < 0 ? 0 : cutScore;
 
     requestAnimationFrame(render);
