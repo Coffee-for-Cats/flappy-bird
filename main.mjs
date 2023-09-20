@@ -20,7 +20,7 @@ function render() {
     })
 
     // removes objects out of bounds.
-    scene.forEach(obj => {
+    scene.forEach((obj, i) => {
         if (bird.contacts(obj) || outOfBounds(bird)) gameOver();
         if (outOfBounds(obj)) {
             scene.splice(i, 1);
