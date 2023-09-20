@@ -30,7 +30,7 @@ function render() {
     // needs to be separated, if not, it will execute something already removed
     scene.forEach(obj => obj.alive());
 
-    score();
+    trackScore();
 
     requestAnimationFrame(render);
 }
@@ -41,7 +41,7 @@ function gameOver() {
     location.reload();
 }
 
-function score() {
+function trackScore() {
     distance++;
     canvas.style.backgroundPosition = `${-distance}px 0px`;
     // score printing
