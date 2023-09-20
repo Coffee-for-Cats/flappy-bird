@@ -24,11 +24,12 @@ function render() {
         if (bird.contacts(obj) || outOfBounds(bird)) gameOver();
         if (outOfBounds(obj)) {
             scene.splice(i, 1);
-        } else {
-            // executes individual code from each obj
-            obj.alive();
         }
     })
+    
+    // execute individual code from each object.
+    // needs to be separated, if not, it will execute something already removed
+    scene.forEach(obj => obj.alive());
 
     trackScore();
 
